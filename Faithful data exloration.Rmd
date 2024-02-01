@@ -11,14 +11,16 @@ library(kableExtra)
 ```
 
 ## 1. Average Waiting Time Between Eruptions
+
 ```{r}
 data <- faithful
 ```
 
-The average waiting time between eruptions of the __Old Faithful__ geyser in the data set `faithful` is `r round( mean(data$waiting), 2)` minutes.
+The average waiting time between eruptions of the **Old Faithful** geyser in the data set `faithful` is `r round( mean(data$waiting), 2)` minutes.
 
 ## 2. First Four Eruption Durations
-Below is the duration of the first four eruptions in  minutes.
+
+Below is the duration of the first four eruptions in minutes.
 
 ```{r}
 knitr::kable(head(data$eruptions, n = 4),col.names = "Duration(min)")
@@ -26,7 +28,8 @@ knitr::kable(head(data$eruptions, n = 4),col.names = "Duration(min)")
 
 ## 3. First Five Records of the Eruptions Data
 
-The first five rows of the data set `faithful` is displayed below. 
+The first five rows of the data set `faithful` is displayed below.
+
 ```{r, echo = FALSE}
 d <-head(data, n =5)
 kbl <- knitr::kable(d, format = "html")
@@ -41,3 +44,5 @@ hist(data$eruptions, main = "Histogram of Eruption Durations",
 ```
 
 The figure above indicates a bimodal distribution of eruption durations. One group exhibits eruptions lasting less than 3 minutes, while the other group had eruptions lasting from more than 3 minutes up to 5 minutes.
+
+[Link to code to reproduce document](https://github.com/Mubarak-M/DataVisualizations/blob/main/Faithful%20data%20exloration.Rmd)
