@@ -1,0 +1,43 @@
+---
+title: "Faithful data exploration"
+author: "Mubarak Mojoyinola"
+date: "2024-01-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(kableExtra)
+```
+
+## 1. Average Waiting Time Between Eruptions
+```{r}
+data <- faithful
+```
+
+The average waiting time between eruptions of the __Old Faithful__ geyser in the data set `faithful` is `r round( mean(data$waiting), 2)` minutes.
+
+## 2. First Four Eruption Durations
+Below is the duration of the first four eruptions in  minutes.
+
+```{r}
+knitr::kable(head(data$eruptions, n = 4),col.names = "Duration(min)")
+```
+
+## 3. First Five Records of the Eruptions Data
+
+The first five rows of the data set `faithful` is displayed below. 
+```{r, echo = FALSE}
+d <-head(data, n =5)
+kbl <- knitr::kable(d, format = "html")
+kableExtra::kable_styling(kbl, full_width = FALSE)
+```
+
+## 4. Histogram of Eruption Durations
+
+```{r}
+hist(data$eruptions, main = "Histogram of Eruption Durations",
+     xlab = "Eruption duration (min)")
+```
+
+The figure above indicates a bimodal distribution of eruption durations. One group exhibits eruptions lasting less than 3 minutes, while the other group had eruptions lasting from more than 3 minutes up to 5 minutes.
